@@ -1,1 +1,1 @@
-worker: python setup.py
+worker: node setup.py
