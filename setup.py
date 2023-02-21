@@ -37,7 +37,7 @@ while True:
             (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[4]/div[2]/div/div[6]'))).click()
         page_html = wait.until(EC.visibility_of_element_located(
             (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerHTML')
-        time.sleep(3600) #900 seconds = 15min
+        time.sleep(900) #900 seconds = 15min
         driver.refresh()  # refresh page
         wait.until(EC.visibility_of_element_located(
             (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[4]/div[2]/div/div[6]'))).click()
