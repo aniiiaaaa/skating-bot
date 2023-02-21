@@ -46,7 +46,7 @@ while True:
         # driver.close()
         chrome_options = Options()
         if page_html == page_html2:
-            test = telegram_bot_sendtext('nothing changed ', page_html)
+            test = telegram_bot_sendtext('nothing changed ' + page_html)
             driver.refresh()
             continue
 
@@ -56,7 +56,7 @@ while True:
             wait = WebDriverWait(driver, 20)
 
             print(page_html2)
-            telegram_bot_sendtext('SCC Free Training: ', page_html2)
+            telegram_bot_sendtext('SCC Free Training: ' + page_html2)
 
             # wait for 30 seconds
             time.sleep(60)
