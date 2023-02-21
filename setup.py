@@ -36,17 +36,17 @@ while True:
         wait.until(EC.visibility_of_element_located(
             (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[4]/div[2]/div/div[6]'))).click()
         page_html = wait.until(EC.visibility_of_element_located(
-            (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerHTML')
+            (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
         time.sleep(30) #900 seconds = 15min
         driver.refresh()  # refresh page
         wait.until(EC.visibility_of_element_located(
             (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[4]/div[2]/div/div[6]'))).click()
         page_html2 = wait.until(EC.visibility_of_element_located(
-            (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerHTML')
+            (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
         # driver.close()
         chrome_options = Options()
         if page_html == page_html2:
-            test = telegram_bot_sendtext('nothing changed ', page_html.get_attribute('InnerText'))
+            test = telegram_bot_sendtext('nothing changed ', page_html)
             driver.refresh()
             continue
 
@@ -56,7 +56,7 @@ while True:
             wait = WebDriverWait(driver, 20)
 
             print(page_html2)
-            telegram_bot_sendtext('SCC Free Training: ', page_html2.get_attribute('InnerText'))
+            telegram_bot_sendtext('SCC Free Training: ', page_html2)
 
             # wait for 30 seconds
             time.sleep(60)
