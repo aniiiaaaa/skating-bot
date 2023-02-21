@@ -46,7 +46,7 @@ while True:
         # driver.close()
         chrome_options = Options()
         if page_html == page_html2:
-            #test = telegram_bot_sendtext('nothing changed', page_html.get_attribute('label')
+            test = telegram_bot_sendtext('nothing changed', page_html.get_attribute('label')
             driver.refresh()
             continue
 
