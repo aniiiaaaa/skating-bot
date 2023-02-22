@@ -38,7 +38,7 @@ def check_scc():
             driver.get("https://app.cituro.com/booking/scc#step=1")
             WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[4]/div[2]/div/div[6]'))).click()
             page_html = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
-            time.sleep(30) #900 seconds = 15min
+            time.sleep(900) #900 seconds = 15min
             driver.refresh()  # refresh page
             WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[4]/div[2]/div/div[6]'))).click()
             page_html2 = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
@@ -62,7 +62,7 @@ def check_bev_phs():
             driver2.get("https://app.cituro.com/booking/bev#step=1")
             WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[5]/div/div'))).click()
             page_html3 = WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
-            time.sleep(30) #900 seconds = 15min
+            time.sleep(900) #900 seconds = 15min
             driver2.refresh()  # refresh page
             WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[5]/div/div'))).click()
             page_html4 = WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
@@ -87,7 +87,7 @@ def check_bev_ehe():
             driver3.get("https://app.cituro.com/booking/bev#step=1")
             WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[2]/div/div'))).click()
             page_html5 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
-            time.sleep(30) #900 seconds = 15min
+            time.sleep(900) #900 seconds = 15min
             driver3.refresh()  # refresh page
             WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[2]/div/div'))).click()
             page_html6 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
@@ -112,7 +112,7 @@ def check_bev_p9o():
             driver4.get("https://app.cituro.com/booking/bev#step=1")
             WebDriverWait(driver4, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div'))).click()
             page_html7 = WebDriverWait(driver4, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
-            time.sleep(30) #900 seconds = 15min
+            time.sleep(900) #900 seconds = 15min
             driver4.refresh()  # refresh page
             WebDriverWait(driver4, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div'))).click()
             page_html8 = WebDriverWait(driver4, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
