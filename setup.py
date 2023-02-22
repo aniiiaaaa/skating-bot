@@ -20,7 +20,7 @@ chrome_options.add_argument("--no-sandbox")
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
 driver2 = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
 driver3 = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
-#driver4 = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+driver4 = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
 
 
 def telegram_bot_sendtext(bot_message):
@@ -133,4 +133,4 @@ def check_bev_p9o():
 thread1 = threading.Thread(target=check_scc).start()
 thread2 = threading.Thread(target=check_bev_phs).start()
 thread3 = threading.Thread(target=check_bev_ehe).start()
-#thread4 = threading.Thread(target=check_bev_p9o).start()
+thread4 = threading.Thread(target=check_bev_p9o).start()
