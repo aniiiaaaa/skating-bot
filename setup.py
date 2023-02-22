@@ -9,6 +9,7 @@ import time
 import os
 import telegram
 import requests
+import threading
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
