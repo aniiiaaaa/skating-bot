@@ -43,7 +43,7 @@ def check_scc():
             page_html2 = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             chrome_options = Options()
             if page_html == page_html2:
-                telegram_bot_sendtext('nothing changed SCC')
+                #telegram_bot_sendtext('nothing changed SCC')
                 driver.refresh()
                 continue
             else:
@@ -67,7 +67,7 @@ def check_bev_phs():
             page_html4 = WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             chrome_options = Options()
             if page_html3 == page_html4:
-                telegram_bot_sendtext('nothing changed BEV PHS')
+                #telegram_bot_sendtext('nothing changed BEV PHS')
                 driver2.refresh()
                 continue
             else:
@@ -121,7 +121,7 @@ def check_bev():
                 driver3.refresh()
                 continue
             else:
-                telegram_bot_sendtext('nothing changed for BEV EHE or P9 Open')
+                #telegram_bot_sendtext('nothing changed for BEV EHE or P9 Open')
                 driver3.refresh()
                 time.sleep(60)
                 continue
