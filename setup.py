@@ -21,10 +21,7 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), o
 driver2 = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
 driver3 = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
 driver4 = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
-wait = WebDriverWait(driver, 20)
-wait2 = WebDriverWait(driver2, 20)
-wait3 = WebDriverWait(driver3, 20)
-wait4 = WebDriverWait(driver4, 20)
+
 
 def telegram_bot_sendtext(bot_message):
    bot_token = os.getenv("BOT_TOKEN")
@@ -39,12 +36,12 @@ def check_scc():
     while True:
         try:
             driver.get("https://app.cituro.com/booking/scc#step=1")
-            wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[4]/div[2]/div/div[6]'))).click()
-            page_html = wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[4]/div[2]/div/div[6]'))).click()
+            page_html = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             time.sleep(30) #900 seconds = 15min
             driver.refresh()  # refresh page
-            wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[4]/div[2]/div/div[6]'))).click()
-            page_html2 = wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[4]/div[2]/div/div[6]'))).click()
+            page_html2 = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             chrome_options = Options()
             if page_html == page_html2:
                 telegram_bot_sendtext('nothing changed SCC')
@@ -63,12 +60,12 @@ def check_bev_phs():
     while True:
         try:
             driver2.get("https://app.cituro.com/booking/bev#step=1")
-            wait2.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[5]/div/div'))).click()
-            page_html3 = wait2.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[5]/div/div'))).click()
+            page_html3 = WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             time.sleep(30) #900 seconds = 15min
             driver2.refresh()  # refresh page
-            wait2.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[5]/div/div'))).click()
-            page_html4 = wait2.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[5]/div/div'))).click()
+            page_html4 = WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             chrome_options = Options()
             if page_html3 == page_html4:
                 telegram_bot_sendtext('nothing changed BEV PHS')
@@ -88,12 +85,12 @@ def check_bev_ehe():
     while True:
         try:
             driver3.get("https://app.cituro.com/booking/bev#step=1")
-            wait3.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[2]/div/div'))).click()
-            page_html5 = wait3.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[2]/div/div'))).click()
+            page_html5 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             time.sleep(30) #900 seconds = 15min
             driver3.refresh()  # refresh page
-            wait3.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[2]/div/div'))).click()
-            page_html6 = wait3.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[2]/div/div'))).click()
+            page_html6 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             chrome_options = Options()
             if page_html5 == page_html6:
                 telegram_bot_sendtext('nothing changed BEV EHE')
@@ -113,19 +110,19 @@ def check_bev_p9o():
     while True:
         try:
             driver4.get("https://app.cituro.com/booking/bev#step=1")
-            wait4.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div'))).click()
-            page_html7 = wait4.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            WebDriverWait(driver4, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div'))).click()
+            page_html7 = WebDriverWait(driver4, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             time.sleep(30) #900 seconds = 15min
             driver4.refresh()  # refresh page
-            wait4.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div'))).click()
-            page_html8 = wait4.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            WebDriverWait(driver4, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div'))).click()
+            page_html8 = WebDriverWait(driver4, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             chrome_options = Options()
             if page_html7 == page_html8:
                 telegram_bot_sendtext('nothing changed BEV P9 Open')
                 driver4.refresh()
                 continue
             else:
-                telegram_bot_sendtext('BEV P9 Open: ' + page_html6)
+                telegram_bot_sendtext('BEV P9 Open: ' + page_html8)
                 driver4.refresh()
                 time.sleep(60)
                 continue
