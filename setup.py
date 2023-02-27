@@ -54,47 +54,29 @@ def check_scc():
         except Exception as e:
             print("error",e)
 
-#BEV PHS
-def check_bev_phs():
-    while True:
-        try:
-            driver2.get("https://app.cituro.com/booking/bev#step=1")
-            time.sleep(3)
-            WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[5]/div/div'))).click()
-            page_html3 = WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
-            time.sleep(900) #900 seconds = 15min
-            driver2.refresh()  # refresh page
-            time.sleep(3)
-            WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[5]/div/div'))).click()
-            page_html4 = WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
-            chrome_options = Options()
-            if page_html3 == page_html4:
-                #telegram_bot_sendtext('nothing changed BEV PHS')
-                driver2.refresh()
-                continue
-            else:
-                telegram_bot_sendtext('BEV PHS: ' + page_html4)
-                driver2.refresh()
-                time.sleep(60)
-                continue
-        except Exception as e:
-            print("error",e)
 
-            
-#BEV EHE and P9 open
+
+#check BEV
 def check_bev():
     while True:
         try:
             driver3.get("https://app.cituro.com/booking/bev#step=1")
+            #click PHS
             time.sleep(3)
+            title1 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[5]/div/div/div[1]'))).get_attribute('innerText')
+            WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[5]/div/div'))).click()
+            page_html3 = WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             #click EHE
-            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-                (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[2]/div/div'))).click()
-            page_html5 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-                (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             driver3.refresh()  # refresh page
             time.sleep(3)
+            title2 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[2]/div/div/div[1]'))).get_attribute('innerText')
+            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[2]/div/div'))).click()
+            page_html5 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             #click p9 Open
+            driver3.refresh()  # refresh page
+            time.sleep(3)
+            title3 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
+               (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div/div[1]'))).get_attribute('innerText')
             WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
                 (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div'))).click()
             page_html7 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
@@ -102,6 +84,8 @@ def check_bev():
             driver3.refresh()  # refresh page
             time.sleep(3)
             #click competition times
+            title4 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
+               (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[13]/div/div/div[1]'))).get_attribute('innerText')
             WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
                 (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[13]/div/div'))).click()
             page_html9 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
@@ -110,6 +94,12 @@ def check_bev():
             #wait N minutes
             time.sleep(450)  # 900 seconds = 15min
             
+            #click PHS again
+            driver3.refresh()
+            time.sleep(3)
+            WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[5]/div/div'))).click()
+            page_html4 = WebDriverWait(driver2, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            chrome_options = Options()
             #click EHE again
             driver3.refresh()
             time.sleep(3)
@@ -131,20 +121,25 @@ def check_bev():
                 (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[13]/div/div'))).click()
             page_html10 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
                 (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
-            if page_html5 != page_html6 and 'Unfortunately' not in page_html6:
-                telegram_bot_sendtext('BEV EHE: ' + page_html6)
+            
+            #send texts
+            if page_html3 == page_html4 and 'Unfortunately' not in page_html4:
+               telegram_bot_sendtext(title1 + ': \n' + page_html4)
+               driver3.refresh()
+               continue
+            elif page_html5 != page_html6 and 'Unfortunately' not in page_html6:
+                telegram_bot_sendtext(title2 + ': \n' + page_html6)
                 driver3.refresh()
                 continue
             elif page_html7 != page_html8 and 'Unfortunately' not in page_html8:
-                telegram_bot_sendtext('BEV P9 Open: ' + page_html8)
+                telegram_bot_ sendtext(title3 + ': \n'  + page_html8)
                 driver3.refresh()
                 continue
             elif page_html9 != page_html10 and 'Unfortunately' not in page_html10:
-                telegram_bot_sendtext('BEV PHS Competition Participants: ' + page_html10)
+                telegram_bot_sendtext(title4 + ': \n'  + page_html10)
                 driver3.refresh()
                 continue
             else:
-                #telegram_bot_sendtext('nothing changed for BEV EHE or P9 Open')
                 driver3.refresh()
                 time.sleep(60)
                 continue
@@ -153,5 +148,4 @@ def check_bev():
             
 #run
 thread1 = threading.Thread(target=check_scc).start()
-thread2 = threading.Thread(target=check_bev_phs).start()
-thread3 = threading.Thread(target=check_bev).start()
+thread2 = threading.Thread(target=check_bev).start()
