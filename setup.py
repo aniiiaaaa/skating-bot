@@ -75,21 +75,15 @@ def check_bev():
             #click p9 Open
             driver3.refresh()  # refresh page
             time.sleep(3)
-            title3 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-               (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div/div[1]'))).get_attribute('innerText')
-            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-                (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div'))).click()
-            page_html7 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-                (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            title3 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div/div[1]'))).get_attribute('innerText')
+            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div'))).click()
+            page_html7 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             driver3.refresh()  # refresh page
             time.sleep(3)
             #click competition times
-            title4 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-               (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[13]/div/div/div[1]'))).get_attribute('innerText')
-            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-                (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[13]/div/div'))).click()
-            page_html9 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-                (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            title4 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[13]/div/div/div[1]'))).get_attribute('innerText')
+            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[13]/div/div'))).click()
+            page_html9 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             
             #wait N minutes
             time.sleep(450)  # 900 seconds = 15min
@@ -103,40 +97,34 @@ def check_bev():
             #click EHE again
             driver3.refresh()
             time.sleep(3)
-            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-                (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[2]/div/div'))).click()
-            page_html6 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-                (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[2]/div/div'))).click()
+            page_html6 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             #click P9 Open again
             driver3.refresh()
             time.sleep(3)
-            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-                (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div'))).click()
-            page_html8 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-                (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[10]/div/div'))).click()
+            page_html8 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             #click competition times again
             driver3.refresh()
             time.sleep(3)
-            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-                (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[13]/div/div'))).click()
-            page_html10 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
-                (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
+            WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[13]/div/div'))).click()
+            page_html10 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             
             #send texts
-            if page_html3 == page_html4 and 'Unfortunately' not in page_html4:
-               telegram_bot_sendtext(title1 + ': \n' + page_html4)
+            if page_html3 != page_html4 and 'Unfortunately' in page_html3:
+               telegram_bot_sendtext(title1 + ': \n' + page_html4.replace('Pick your date', ''))
                driver3.refresh()
                continue
-            elif page_html5 != page_html6 and 'Unfortunately' not in page_html6:
-                telegram_bot_sendtext(title2 + ': \n' + page_html6)
+            elif page_html5 != page_html6 and 'Unfortunately' in page_html5:
+                telegram_bot_sendtext(title2 + ': \n' + page_html6.replace('Pick your date', ''))
                 driver3.refresh()
                 continue
-            elif page_html7 != page_html8 and 'Unfortunately' not in page_html8:
-                telegram_bot_sendtext(title3 + ': \n'  + page_html8)
+            elif page_html7 != page_html8 and 'Unfortunately' in page_html7:
+                telegram_bot_sendtext(title3 + ': \n'  + page_html8.replace('Pick your date', ''))
                 driver3.refresh()
                 continue
-            elif page_html9 != page_html10 and 'Unfortunately' not in page_html10:
-                telegram_bot_sendtext(title4 + ': \n'  + page_html10)
+            elif page_html9 != page_html10 and 'Unfortunately' in page_html9:
+                telegram_bot_sendtext(title4 + ': \n'  + page_html10.replace('Pick your date', ''))
                 driver3.refresh()
                 continue
             else:
