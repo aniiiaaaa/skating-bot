@@ -139,7 +139,7 @@ def check_bev():
                 telegram_bot_sendtext('BEV P9 Open: ' + page_html8)
                 driver3.refresh()
                 continue
-            elif page_html9 != page_html10 and 'Unfortunately' not in page_html610:
+            elif page_html9 != page_html10 and 'Unfortunately' not in page_html10:
                 telegram_bot_sendtext('BEV PHS Competition Participants: ' + page_html10)
                 driver3.refresh()
                 continue
