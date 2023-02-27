@@ -140,7 +140,7 @@ def check_bev():
                 driver3.refresh()
                 continue
             elif page_html9 != page_html10:
-                telegram_bot_sendtext('BEV P9 Open: ' + page_html8)
+                telegram_bot_sendtext('BEV PHS Competition Participants: ' + page_html10)
                 driver3.refresh()
                 continue
             else:
