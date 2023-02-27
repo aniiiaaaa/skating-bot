@@ -108,7 +108,7 @@ def check_bev():
                 (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             
             #wait N minutes
-            time.sleep(900)  # 900 seconds = 15min
+            time.sleep(450)  # 900 seconds = 15min
             
             #click EHE again
             driver3.refresh()
@@ -135,11 +135,11 @@ def check_bev():
                 telegram_bot_sendtext('BEV EHE: ' + page_html6)
                 driver3.refresh()
                 continue
-            elif page_html7 != page_html8:
+            elif page_html7 != page_html8 and 'Unfortunately' not in page_html8:
                 telegram_bot_sendtext('BEV P9 Open: ' + page_html8)
                 driver3.refresh()
                 continue
-            elif page_html9 != page_html10:
+            elif page_html9 != page_html10 and 'Unfortunately' not in page_html610:
                 telegram_bot_sendtext('BEV PHS Competition Participants: ' + page_html10)
                 driver3.refresh()
                 continue
