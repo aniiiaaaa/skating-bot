@@ -132,7 +132,7 @@ def check_bev():
                 driver3.refresh()
                 continue
             elif page_html7 != page_html8 and 'Unfortunately' not in page_html8:
-                telegram_bot_ sendtext(title3 + ': \n'  + page_html8)
+                telegram_bot_sendtext(title3 + ': \n'  + page_html8)
                 driver3.refresh()
                 continue
             elif page_html9 != page_html10 and 'Unfortunately' not in page_html10:
