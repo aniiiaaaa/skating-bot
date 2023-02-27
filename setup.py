@@ -131,7 +131,7 @@ def check_bev():
                 (By.XPATH, '/html/body/div/section/div[2]/div[2]/div/div/div[13]/div/div'))).click()
             page_html10 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located(
                 (By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
-            if page_html5 != page_html6:
+            if page_html5 != page_html6 and 'Unfortunately' not in page_html6:
                 telegram_bot_sendtext('BEV EHE: ' + page_html6)
                 driver3.refresh()
                 continue
