@@ -86,7 +86,7 @@ def check_bev():
             page_html9 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             
             #wait N minutes
-            time.sleep(450)  # 900 seconds = 15min
+            time.sleep(200)  # 900 seconds = 15min
             
             #click PHS again
             driver3.refresh()
@@ -111,19 +111,19 @@ def check_bev():
             page_html10 = WebDriverWait(driver3, 20).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/section/div[2]/div[2]/div[2]/div/div[2]/div'))).get_attribute('innerText')
             
             #send texts
-            if page_html3 != page_html4 and 'Unfortunately' in page_html3:
+            if page_html3 != page_html4 and 'Unfortunately' not in page_html4:
                telegram_bot_sendtext(title1 + ': \n' + page_html4.replace('Pick your date', ''))
                driver3.refresh()
                continue
-            elif page_html5 != page_html6 and 'Unfortunately' in page_html5:
+            elif page_html5 != page_html6 and 'Unfortunately' not in page_html6:
                 telegram_bot_sendtext(title2 + ': \n' + page_html6.replace('Pick your date', ''))
                 driver3.refresh()
                 continue
-            elif page_html7 != page_html8 and 'Unfortunately' in page_html7:
+            elif page_html7 != page_html8 and 'Unfortunately' not in page_html8:
                 telegram_bot_sendtext(title3 + ': \n'  + page_html8.replace('Pick your date', ''))
                 driver3.refresh()
                 continue
-            elif page_html9 != page_html10 and 'Unfortunately' in page_html9:
+            elif page_html9 != page_html10 and 'Unfortunately' not in page_html10:
                 telegram_bot_sendtext(title4 + ': \n'  + page_html10.replace('Pick your date', ''))
                 driver3.refresh()
                 continue
