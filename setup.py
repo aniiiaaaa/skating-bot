@@ -112,11 +112,11 @@ def check_bev():
             
             #send texts
             if page_html3 != page_html4 and 'Unfortunately' not in page_html4:
-               telegram_bot_sendtext(title1 + ': \n' + page_html4.replace('Pick your date', '').replace('BEV Adult', '').replace('\n', '')
+               telegram_bot_sendtext(title1 + ': \n' + page_html4.replace('Pick your date', '').replace('BEV Adult', '').replace('\n', ''))
                driver3.refresh()
                continue
             elif page_html5 != page_html6 and 'Unfortunately' not in page_html6:
-                telegram_bot_sendtext(title2 + ': \n' + page_html6.replace('Pick your date', '')).replace('BEV Adult', '').replace('\n', '')
+                telegram_bot_sendtext(title2 + ': \n' + page_html6.replace('Pick your date', '').replace('BEV Adult', '').replace('\n', ''))
                 driver3.refresh()
                 continue
             elif page_html7 != page_html8 and 'Unfortunately' not in page_html8:
