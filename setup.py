@@ -116,7 +116,7 @@ def check_bev():
                driver3.refresh()
                continue
             elif page_html5 != page_html6 and 'Unfortunately' not in page_html6: #ehe
-                telegram_bot_sendtext(title2 + ':  \n' + page_html6.replace('Pick your date', '').replace('BEV Adults', '\n')) #.replace('\n', '')
+                telegram_bot_sendtext(title2 + ': \n' + page_html6.replace('Pick your date', '').replace('\n', '').replace('BEV Adults', '')) #
                 driver3.refresh()
                 continue
             elif page_html7 != page_html8 and 'Unfortunately' not in page_html8: #p9 open
