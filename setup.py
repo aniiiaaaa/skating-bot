@@ -112,19 +112,19 @@ def check_bev():
             
             #send texts
             if page_html3 != page_html4 and 'Unfortunately' not in page_html4: #phs
-               telegram_bot_sendtext(title1 + ': \n' + page_html4.replace('Pick your date', '').replace('BEV Adults', '').replace('BEV Adult', '')) #replace('\n', '')
+               telegram_bot_sendtext(title1 + ':\n' + page_html4.replace('Pick your date\n', '').replace('BEV Adults\n', '').replace('BEV Adult\n', '')) #replace('\n', '')
                driver3.refresh()
                continue
             elif page_html5 != page_html6 and 'Unfortunately' not in page_html6: #ehe
-                telegram_bot_sendtext(title2 + ': \n' + page_html6.replace('Pick your date\n', '').replace('\nBEV Adults', '')) #
+                telegram_bot_sendtext(title2 + ':\n' + page_html6.replace('Pick your date\n', '').replace('BEV Adults\n', '')) #
                 driver3.refresh()
                 continue
             elif page_html7 != page_html8 and 'Unfortunately' not in page_html8: #p9 open
-                telegram_bot_sendtext(title3 + ': \n'  + page_html8.replace('Pick your date', ''))
+                telegram_bot_sendtext(title3 + ':\n'  + page_html8.replace('Pick your date\n', ''))
                 driver3.refresh()
                 continue
             elif page_html9 != page_html10 and 'Unfortunately' not in page_html10: #phs comp
-                telegram_bot_sendtext(title4 + ': '  + page_html10.replace('Pick your date', '').replace('BEV Adults', ''))
+                telegram_bot_sendtext(title4 + ':\n'  + page_html10.replace('Pick your date\n', '').replace('BEV Adults\n', ''))
                 driver3.refresh()
                 continue
             else:
